@@ -24,3 +24,20 @@ coco.names和coco_cn.names已改成voc.names和其相应的20个中文标签。�
 
 该方法来自：
 https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129e397a521
+
+
+Mark.py:
+用于批量生成标记文件。因为生成的标记位置相同，所以在获取照片时尽量保证人脸的位置不变，且背景较为单一。
+使用方法（Linux）：
+
+1.使用labelimg生成第0张照片的标记文件（可适当扩大标记位置）
+
+2.在Annotations中生成相应数量的文件（以1747份照片为例）
+for i in {1..1746}; do touch ${i}.xml;done;
+
+3.根据第0份标记信息，修改Mark.py
+
+4.python Mark.py
+
+5.修改标记文件名称
+i=1000001; for f in *.xml; do mv "$f" 181107_${i#1}.xml; ((i++));done
