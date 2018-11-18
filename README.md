@@ -1,4 +1,5 @@
 # yolo-people-counting
+
 <br>
 基于yolo的人流/人数识别系统
 
@@ -28,7 +29,9 @@ https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129
 <br>
 <br>
 <br>
+
 ## 关于训练：
+
 <br>
 VOCdevkit
 +VOC20XX
@@ -40,14 +43,17 @@ VOCdevkit
 JPEGImages中存放照片，Annotations中存放标记文件（可以使用labelimg标记），Main中存放train.txt（训练文件的文件名），val.txt（验证文件的文件名），trainval.txt（train+val）,test.txt（测试文件的文件名，非必须）
 <br>
 <br>
+
 ### voc_txt.c:
 一个得到上述txt文件的一个demo。注意使用时修改相关内容。
 <br>
 <br>
+
 ### voc_label.py:
 通过上述txt文件自动生成文件路径的程序。注意使用时修改相关内容。
 <br>
 <br>
+
 ### Mark.py:
 用于批量生成标记文件。因为生成的标记位置相同，所以在获取照片时尽量保证人脸的位置不变，且背景较为单一。
 使用方法（Linux）：
