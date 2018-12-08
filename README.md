@@ -86,5 +86,13 @@ nohup ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74
 <br>
 <br>
 
-## 特别注意：
+### 特别注意：
 在源码src/data.c中，fill_truth_detection函数是用于利用图片路径获取labels路径。它会将“JPEGImages”换成“labels”，“jpg”换成“txt”，“JPEG”换成“txt”。如果原本的文件名后缀为小写的“jpeg”，注意修改源码
+<br>
+
+## 训练中
+### 每秒刷新显卡监视窗口：
+watch -n 1 nvidia-smi
+### 刷新查看日志文件nohup.out:
+tail -f nohup.out
+
