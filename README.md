@@ -33,12 +33,12 @@ https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129
 ## 关于训练：
 
 <br>
-VOCdevkit
-+VOC20XX
-++JPEGImages
-++Annotations
-++ImageSets
-+++Main
+VOCdevkit<br>
++VOC20XX<br>
+++JPEGImages<br>
+++Annotations<br>
+++ImageSets<br>
++++Main<br>
 <br>
 JPEGImages中存放照片，Annotations中存放标记文件（可以使用labelimg标记），Main中存放train.txt（训练文件的文件名），val.txt（验证文件的文件名），trainval.txt（train+val）,test.txt（测试文件的文件名，非必须）
 <br>
