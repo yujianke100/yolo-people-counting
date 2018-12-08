@@ -75,6 +75,11 @@ cat 20xx_train.txt 20xx_val.txt >train.txt
 
 ### 4.修改参数：
 #### cfg/voc.data：修改classes数量、路径等
+classes= 1 #classes为训练样本集的类别总数
+train = /home/user/darknet/train.txt #train的路径为训练样本集所在的路径 
+valid = /home/user/darknet/2007_val.txt #valid的路径为验证样本集所在的路径 
+names = data/voc.names #names的路径为data/voc.names文件所在的路径 
+backup = backup #务必确保权重文件输出地址存在。默认在darknet根目录下
 #### data/voc.names:修改标签名
 #### cfg/yolov3-voc.cfg：修改三处[yolo]前后文中的classes和filters=（3*（classes+5））。注意最前面的Testing部分要注释掉，Training部分的解注。bath和subdivisions根据显存大小进行修改（越大越快，也越容易爆显存。TITAN XP上，选择了32，16）
 <br>
