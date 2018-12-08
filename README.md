@@ -59,9 +59,11 @@ VOCdevkit<br>
 JPEGImages中存放照片，Annotations中存放标记文件（可以使用labelimg标记），Main中存放train.txt（训练文件的文件名），val.txt（验证文件的文件名），trainval.txt（train+val）,test.txt（测试文件的文件名，非必须）
 <br>
 <br>
+将文件夹整理好之后上传，之后的步骤在服务器上操作
+<br>
 
 ### 2.使用voc_txt.c:
-一个得到上述txt文件的一个demo。注意使用时修改相关内容。生成的内容会带有路径信息和后缀，需要手动去除。（文本替换）
+一个得到上述txt文件的一个demo。注意使用时修改相关内容。生成的内容会带有路径信息和后缀，需要手动去除。（文本替换）其中，*[^x]代表除了x之外的所有。可根据需要改动各txt中的内容。
 <br>
 <br>
 
@@ -79,9 +81,11 @@ classes= 1 #classes为训练样本集的类别总数
 train = /home/user/darknet/train.txt #train的路径为训练样本集所在的路径 
 valid = /home/user/darknet/2007_val.txt #valid的路径为验证样本集所在的路径 
 names = data/voc.names #names的路径为data/voc.names文件所在的路径 
-backup = backup #务必确保权重文件输出地址存在。默认在darknet根目录下
-#### data/voc.names:修改标签名
-#### cfg/yolov3-voc.cfg：修改三处[yolo]前后文中的classes和filters=（3*（classes+5））。注意最前面的Testing部分要注释掉，Training部分的解注。bath和subdivisions根据显存大小进行修改（越大越快，也越容易爆显存。TITAN XP上，选择了32，16）
+backup = backup #务必确保权重文件输出地址存在。默认在darknet根目录下的backup
+#### data/voc.names:
+修改标签名
+#### cfg/yolov3-voc.cfg：
+修改三处[yolo]前后文中的classes和filters=（3*（classes+5））。注意最前面的Testing部分要注释掉，Training部分的解注。bath和subdivisions根据显存大小进行修改（越大越快，也越容易爆显存。TITAN XP上，选择了32，16）
 <br>
 <br>
 
