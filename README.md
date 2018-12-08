@@ -68,6 +68,6 @@ for i in {1..1746}; do touch ${i}.xml;done;
 4.python Mark.py
 
 5.修改标记文件名称
-i=1000001; for f in *.xml; do mv "$f" 181107_${i#1}.xml; ((i++));done
+i=1000001; for f in *.xml; do mv "$f" 181107_${i#1}.xml; ((i++));done<br>
 voc_txt.c:
 
