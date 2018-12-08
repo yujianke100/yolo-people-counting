@@ -69,5 +69,5 @@ for i in {1..1746}; do touch ${i}.xml;done;
 
 5.修改标记文件名称
 i=1000001; for f in *.xml; do mv "$f" 181107_${i#1}.xml; ((i++));done<br>
-voc_txt.c:
-
+### voc_txt.c:
+生成main文件夹中的txt
