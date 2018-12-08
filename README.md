@@ -60,12 +60,12 @@ JPEGImages中存放照片，Annotations中存放标记文件（可以使用label
 <br>
 <br>
 
-### 3.使用voc_txt.c:
+### 2.使用voc_txt.c:
 一个得到上述txt文件的一个demo。注意使用时修改相关内容。生成的内容会带有路径信息和后缀，需要手动去除。（文本替换）
 <br>
 <br>
 
-### 4.使用voc_label.py:
+### 3.使用voc_label.py:
 通过上述txt文件自动生成文件路径的程序。注意使用时修改相关内容。（注意jpg和jpeg）.
 <br>
 注意：应把生成的20xx_train.txt和20xx_val.txt合并。<br>
@@ -73,14 +73,14 @@ cat 20xx_train.txt 20xx_val.txt >train.txt
 <br>
 <br>
 
-### 5.修改参数：
+### 4.修改参数：
 #### cfg/voc.data：修改classes数量、路径等
 #### data/voc.names:修改标签名
 #### cfg/yolov3-voc.cfg：修改三处[yolo]前后文中的classes和filters=（3*（classes+5））。注意最前面的Testing部分要注释掉，Training部分的解注。bath和subdivisions根据显存大小进行修改（越大越快，也越容易爆显存。TITAN XP上，选择了32，16）
 <br>
 <br>
 
-### 6.开始训练：
+### 5.开始训练：
 nohup ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74 -gpus 0,1 &<br>
 该指令将会将训练任务放在后台。打开darknet文件夹下的nohup.out可以查看日志。
 <br>
