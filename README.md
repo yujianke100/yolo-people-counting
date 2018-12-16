@@ -47,8 +47,11 @@ for i in {1..1746}; do touch ${i}.xml;done;
 i=1000001; for f in *.xml; do mv "$f" 181107_${i#1}.xml; ((i++));done<br>
 
 ## 关于训练：
-## 新方案：
+## -----------------新方案-----------------
+训练依旧需要JPEGimages文件夹和labels文件夹
+
 https://github.com/xhuvom/darknetFaceID
+
 利用yolo的人脸识别，做到一个摄像头，实时保存人脸图像和坐标信息。
 具体操作步骤可见readme
 
@@ -91,7 +94,8 @@ make
 Nohup ./darknet detector train cfg/face.data cfg/yolov3-face.cfg darknet53.conv.74 &
 
 
-## ------------以下为旧方案-----------------
+## -----------------新方案-----------------
+## -----------------以下为旧方案-----------------
 ### 1.新建文件夹：
 <br>
 VOCdevkit<br>
@@ -139,7 +143,7 @@ nohup ./darknet detector train cfg/voc.data cfg/yolov3-voc.cfg darknet53.conv.74
 该指令将会将训练任务放在后台。打开darknet文件夹下的nohup.out可以查看日志。
 <br>
 <br>
-
+## -----------------旧方案-----------------
 ### 特别注意：
 在源码src/data.c中，fill_truth_detection函数是用于利用图片路径获取labels路径。它会将“JPEGImages”换成“labels”，“jpg”换成“txt”，“JPEG”换成“txt”。如果原本的文件名后缀为小写的“jpeg”，注意修改源码
 <br>
