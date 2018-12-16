@@ -30,7 +30,7 @@ https://github.com/PaulChongPeng/darknet/commit/798fe7cc4176d452a83d63eb261d6129
 <br>
 <br>
 
-### Mark.py:
+### Mark.py（旧方案）:
 用于批量生成标记文件。因为生成的标记位置相同，所以在获取照片时尽量保证人脸的位置不变，且背景较为单一。
 使用方法（Linux）：
 
@@ -47,6 +47,51 @@ for i in {1..1746}; do touch ${i}.xml;done;
 i=1000001; for f in *.xml; do mv "$f" 181107_${i#1}.xml; ((i++));done<br>
 
 ## 关于训练：
+## 新方案：
+https://github.com/xhuvom/darknetFaceID
+利用yolo的人脸识别，做到一个摄像头，实时保存人脸图像和坐标信息。
+具体操作步骤可见readme
+
+### 采样部分：
+要点1：使用QuanHua提供的人脸权重文件
+
+要点2：opencv要为2版本
+
+要点3：修改image.c中的223行和227行
+
+要点4：源码本身有问题，需要在save_image_jpg函数中的sprintf改成sprintf(buff, "%s%d.jpg", name, imnumber);（或在使用时不加‘_’），并在227行后加上imnumber++;
+
+要点5：运行前保证223行和227行中定位的文件夹存在。
+
+make clean
+
+make
+
+./darknet detector demo cfg/face.data cfg/yolo-face.cfg yolo-face_final.weight //具体指令以具体情况为准
+
+要点6：一次只能出现一张人脸！！！
+
+采集结束时，ctrl+z结束进程就行。
+
+### 训练部分：
+1.把所有JPEG放到JPEGimages里
+
+2.把txt按照class分别放在某个文件夹下的各自的文件夹中（就是每个人的txt要分开放）
+
+3.convert.py可将坐标信息转成训练信息。注意按顺序填写classes，修改34、35行的坐标txt的路径（改一次跑一次）和输出路径（可以统一为labels）。cls填写对应class的名称。保存运行。
+
+4.每个class都要重新修改cls运行convert.py（也就是说convert.py中的classes是为了确定class的index，真正生成的class是cls中填写的。有几个人就得改几次cls和34行的路径，跑几遍，生成几个list）
+
+由于会直接生成记录文件路径的list，这一步最好放在服务器上运行。
+
+*_list > train.txt
+
+训练时，调整好参数之后，直接将train指过去就好了，估计也不用加什么vaild了。
+
+Nohup ./darknet detector train cfg/face.data cfg/yolov3-face.cfg darknet53.conv.74 &
+
+
+## ------------以下为旧方案-----------------
 ### 1.新建文件夹：
 <br>
 VOCdevkit<br>
