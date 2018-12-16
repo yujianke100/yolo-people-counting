@@ -1,5 +1,12 @@
 # yolo-people-counting
+![Darknet Logo](http://pjreddie.com/media/files/darknet-black-small.png)
 
+#Darknet#
+Darknet是一个用C和CUDA编写的开源神经网络框架。 它安装快速，易于安装，并支持CPU和GPU计算。
+
+更多信息：[Darknet project website](http://pjreddie.com/darknet).
+
+如有疑问或问题： [Google Group](https://groups.google.com/forum/#!forum/darknet).
 <br>
 基于yolo的人流/人数识别系统
 
@@ -95,7 +102,7 @@ Nohup ./darknet detector train cfg/face.data cfg/yolov3-face.cfg darknet53.conv.
 
 
 ## -----------------新方案-----------------
-## -----------------以下为旧方案-----------------
+## -----------------旧方案-----------------
 ### 1.新建文件夹：
 <br>
 VOCdevkit<br>
