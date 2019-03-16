@@ -17,6 +17,8 @@ yujianke.c是在demo.c的基础上改写的
 
 detector.c中添加了yujianke.c的启动指令
 
+make前别忘记把include/darknet.h里的draw_detections申明改成int返回型
+
 start.c生成用于启动的可执行文件
 
 stop.c生成用于控制该系统的可执行文件
